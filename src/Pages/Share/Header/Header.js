@@ -6,11 +6,11 @@ const Header = () => {
     const mennuItem = <React.Fragment>
         <li><Link to='/'>Home</Link></li>
         <li><Link to='/'>Category</Link></li>
-        <li><Link to='/'>Blog</Link></li>
-        <li><Link to='/'>Deshboard</Link></li>
+        <li><Link to='/Blog'>Blog</Link></li>
+        <li><Link to='/deshboard'>Deshboard</Link></li>
     </React.Fragment>
     return (
-        <div className="navbar bg-base-100 py-5">
+        <div className="navbar bg-base-100 py-5 container mx-auto">
             <div className="navbar-start">
                 <div className="dropdown">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">
