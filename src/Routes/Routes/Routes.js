@@ -3,6 +3,8 @@ import Main from "../../LayOut/Main/Main";
 import Blog from "../../Pages/Blog/Blog";
 import Deshboard from "../../Pages/Deshboard/Deshboard";
 import Home from "../../Pages/Home/Home";
+import Login from "../../Pages/Login/Login";
+import SignUp from "../../Pages/SignUp/SignUp";
 
 const router = createBrowserRouter([
     {
@@ -20,6 +22,14 @@ const router = createBrowserRouter([
             {
                 path: '/deshboard',
                 element: <Deshboard></Deshboard>
+            },
+            {
+                path: '/login',
+                element: <Login></Login>
+            },
+            {
+                path: '/signup',
+                element: <SignUp></SignUp>
             }
         ]
     }

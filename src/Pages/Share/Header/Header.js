@@ -31,8 +31,9 @@ const Header = () => {
                     {mennuItem}
                 </ul>
             </div>
-            <div className="navbar-end">
-                <Link to='/' className="btn">Get started</Link>
+            <div className="navbar-end gap-2">
+                <Link to='/Login' className="btn btn-sm">Login</Link>
+                <Link to='/signup' className="btn btn-sm">Sign Up</Link>
             </div>
         </div>
     );
