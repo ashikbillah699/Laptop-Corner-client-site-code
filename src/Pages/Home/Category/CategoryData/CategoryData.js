@@ -12,7 +12,7 @@ const CategoryData = ({ category }) => {
                 </h2>
                 <p>{description}</p>
                 <div className="card-actions justify-end">
-                    <Link to='/Login' className="btn btn-sm">Category service</Link>
+                    <Link to='/categoy/:id' className="btn btn-sm">Category service</Link>
                 </div>
             </div>
         </div>

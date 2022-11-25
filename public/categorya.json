@@ -1,56 +1,20 @@
 [
     {
-        "_id": "635a0c0b64a6d231228942ae",
         "service_id": "01",
         "title": "hp",
         "img": "https://img.mensxp.com/media/content/2020/Aug/The-HP-14s-Seems-Like-A-Perfect-Work-From-Home-Laptop-1200x900_5f29743134f05.jpeg",
-        "price": "20.00",
-        "description": "You can buy second hand laptop of any generation of hp from here according to your choice",
-        "facility": [
-            {
-                "name": "Instant Car Services",
-                "details": "Fuga numquam nulla nam, facere neque dignissimos ab esse magni accusamus eveniet ad corrupti, architecto nostrum."
-            },
-            {
-                "name": "24/7 Quality Service",
-                "details": "Fuga numquam nulla nam, facere neque dignissimos ab esse magni accusamus eveniet ad corrupti, architecto nostrum."
-            }
-        ]
+        "description": "You can buy second hand laptop of any generation of hp from here according to your choice"
     },
     {
-        "_id": "635a0c0b64a6d231228942af",
         "service_id": "02",
         "title": "ASUS",
         "img": "https://www.dpreview.com/files/p/articles/4119129614/asus-zenbook-pro-duo.jpg.jpeg",
-        "price": "20.00",
-        "description": "You can buy second hand laptop of any generation of Asus from here according to your choice",
-        "facility": [
-            {
-                "name": "Instant Car Services",
-                "details": "Fuga numquam nulla nam, facere neque dignissimos ab esse magni accusamus eveniet ad corrupti, architecto nostrum."
-            },
-            {
-                "name": "24/7 Quality Service",
-                "details": "Fuga numquam nulla nam, facere neque dignissimos ab esse magni accusamus eveniet ad corrupti, architecto nostrum."
-            }
-        ]
+        "description": "You can buy second hand laptop of any generation of Asus from here according to your choice"
     },
     {
-        "_id": "635b591a1dafe382a9da8c96",
         "service_id": "03",
         "title": "LENOVO",
         "img": "https://wallpapercave.com/wp/wp2534660.jpg",
-        "price": "200.00",
-        "description": "You can buy second hand laptop of any generation of Lenevo from here according to your choice",
-        "facility": [
-            {
-                "name": "Instant Car Services",
-                "details": "Fuga numquam nulla nam, facere neque dignissimos ab esse magni accusamus eveniet ad corrupti, architecto nostrum."
-            },
-            {
-                "name": "24/7 Quality Service",
-                "details": "Fuga numquam nulla nam, facere neque dignissimos ab esse magni accusamus eveniet ad corrupti, architecto nostrum."
-            }
-        ]
+        "description": "You can buy second hand laptop of any generation of Lenevo from here according to your choice"
     }
 ]
