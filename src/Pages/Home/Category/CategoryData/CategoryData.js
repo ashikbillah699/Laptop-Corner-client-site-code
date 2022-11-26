@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const CategoryData = ({ category }) => {
-    const { title, img, description } = category;
+    const { service_id, title, img, description } = category;
     return (
         <div className="card w-96 bg-base-100 shadow-xl">
             <figure><img src={img} alt="Shoes" /></figure>
@@ -12,7 +12,7 @@ const CategoryData = ({ category }) => {
                 </h2>
                 <p>{description}</p>
                 <div className="card-actions justify-end">
-                    <Link to='/categoy/:id' className="btn btn-sm">Category service</Link>
+                    <Link to={`/categoy/${service_id}`} className="btn btn-sm">Category service</Link>
                 </div>
             </div>
         </div>

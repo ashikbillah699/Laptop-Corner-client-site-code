@@ -1,26 +1,33 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthProvider/AuthProvider';
 
 const Login = () => {
     const { createLogIn } = useContext(AuthContext);
+    const [loginError, setLoginError] = useState();
+
     const handleLogin = event => {
         event.preventDefault()
         const form = event.target;
         const email = form.email.value;
         const password = form.password.value;
         console.log(email, password)
+        setLoginError('')
 
         createLogIn(email, password)
             .then(result => {
                 const user = result.user;
                 console.log(user);
             })
-            .catch(error => console.error(error))
+            .catch(error => {
+                console.error(error.message)
+                setLoginError(error.message)
+
+            })
 
     }
     return (
-        <div className="hero min-h-screen w-2/3 mx-auto ">
+        <div className="hero min-h-screen w-2/3 mx-auto my-48">
             <div className="hero-content flex-col lg:flex-row-reverse">
                 <div className="text-center lg:text-left">
                     <h1 className="text-5xl font-bold">Login </h1>
@@ -40,15 +47,21 @@ const Login = () => {
                             </label>
                             <input name='password' type="password" placeholder="password" className="input input-bordered" required />
                             <label className="label">
-                                <Link to='/' href="#" className="label-text-alt link link-hover">Forgot password?</Link>
+                                <p className="label-text-alt link link-hover text-red-700">{loginError && <>{loginError}</>}</p>
                             </label>
                         </div>
                         <div className="form-control mt-6">
                             <button className="btn btn-primary">Login</button>
                         </div>
-                        <label className="label">
-                            <small >Please <Link className="label-text-alt link link-hover text-primary" to='/signup'>Sign up</Link></small>
+                        <label className="label mx-auto">
+                            <small >New to Laptop Corner? <Link className="label-text-alt link link-hover text-primary" to='/signup'>Create new account</Link></small>
                         </label>
+                        <div className="flex flex-col w-full border-opacity-50">
+                            <div className="divider">OR</div>
+                        </div>
+                        <div className="form-control mt-6">
+                            <button className="btn btn-outline">CONTINUE TO GOOGLE</button>
+                        </div>
                     </div>
                 </form>
             </div>

@@ -1,13 +1,25 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import HeaderImg1 from '../../../assest/HeaderImg/Headerimg2.jpg'
+import { AuthContext } from '../../../context/AuthProvider/AuthProvider';
 
 const Header = () => {
+    const { user, logOut } = useContext(AuthContext);
+
+    const handleLogOut = () => {
+        logOut()
+            .then(() => { })
+            .catch(error => console.error(error))
+    }
+
     const mennuItem = <React.Fragment>
         <li><Link to='/'>Home</Link></li>
         <li><Link to='/'>Category</Link></li>
         <li><Link to='/Blog'>Blog</Link></li>
-        <li><Link to='/deshboard'>Deshboard</Link></li>
+        {user?.uid &&
+            <li><Link to='/deshboard'>Deshboard</Link></li>
+        }
+
     </React.Fragment>
     return (
         <div className="navbar bg-base-100 py-5 container mx-auto">
@@ -32,8 +44,14 @@ const Header = () => {
                 </ul>
             </div>
             <div className="navbar-end gap-2">
-                <Link to='/Login' className="btn btn-sm">Login</Link>
-                <Link to='/signup' className="btn btn-sm">Sign Up</Link>
+                {user?.uid ?
+                    <Link to='/signout' onClick={handleLogOut} className="btn btn-sm">Sign Out</Link>
+                    :
+                    <>
+                        <Link to='/Login' className="btn btn-sm">Login</Link>
+                        <Link to='/signup' className="btn btn-sm">Sign Up</Link>
+                    </>
+                }
             </div>
         </div>
     );

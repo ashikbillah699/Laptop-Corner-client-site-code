@@ -1,26 +1,56 @@
-import React, { useContext } from 'react';
+import { GoogleAuthProvider } from 'firebase/auth';
+import React, { useContext, useState } from 'react';
+import toast from 'react-hot-toast';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthProvider/AuthProvider';
 
 const SignUp = () => {
-    const { createSignIn } = useContext(AuthContext)
+    const { createSignIn, googleSignIn, updateUser } = useContext(AuthContext);
+    const [signupError, setSignupError] = useState();
+    const provider = new GoogleAuthProvider()
 
     const handleSignUp = event => {
         event.preventDefault()
         const form = event.target;
-        // const name = form.name.value;
+        const name = form.name.value;
         const email = form.email.value;
         const password = form.password.value;
+        console.log(name, email, password)
+        setSignupError('')
 
         createSignIn(email, password)
             .then(result => {
                 const user = result.user;
                 console.log(user)
+                toast.success('user create successfully')
+                const userInfo = {
+                    displayName: name
+                }
+                console.log(userInfo)
+                updateUser(userInfo)
+                    .then(() => { })
+                    .catch(error => console.error(error))
+
+
             })
-            .catch(error => console.error(error))
+            .catch(error => {
+                console.error(error.message)
+                setSignupError(error.message)
+            })
     }
+
+    const handleGoogle = () => {
+        googleSignIn(provider)
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+            })
+            .catch(error => console.log(error))
+    }
+
+
     return (
-        <div className="hero min-h-screen w-2/3 mx-auto ">
+        <div className="hero min-h-screen w-2/3 mx-auto my-48">
             <div className="hero-content flex-col lg:flex-row-reverse">
                 <div className="text-center lg:text-left">
                     <h1 className="text-5xl font-bold">Sign Up</h1>
@@ -46,15 +76,21 @@ const SignUp = () => {
                             </label>
                             <input name='password' type="password" placeholder="password" className="input input-bordered" required />
                             <label className="label">
-                                <Link to='/' href="#" className="label-text-alt link link-hover">Forgot password?</Link>
+                                <p to='/' href="#" className="label-text-alt link link-hover text-red-600">{signupError && <>{signupError}</>}</p>
                             </label>
                         </div>
                         <div className="form-control mt-6">
                             <button className="btn btn-primary">Sign up</button>
                         </div>
-                        <label className="label">
+                        <label className="label mx-auto">
                             <small >Now you can <Link className="label-text-alt link link-hover text-primary" to='/Login'>Login</Link></small>
                         </label>
+                        <div className="flex flex-col w-full border-opacity-50">
+                            <div className="divider">OR</div>
+                        </div>
+                        <div className="form-control mt-6">
+                            <button onClick={handleGoogle} className="btn btn-outline">CONTINUE TO GOOGLE</button>
+                        </div>
                     </div>
                 </form>
             </div>

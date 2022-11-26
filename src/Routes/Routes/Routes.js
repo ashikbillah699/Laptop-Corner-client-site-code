@@ -20,10 +20,7 @@ const router = createBrowserRouter([
                 path: '/blog',
                 element: <Blog></Blog>
             },
-            {
-                path: '/deshboard',
-                element: <Deshboard></Deshboard>
-            },
+
             {
                 path: '/login',
                 element: <Login></Login>
@@ -34,9 +31,15 @@ const router = createBrowserRouter([
             },
             {
                 path: '/categoy/:id',
-                element: <Allcategory></Allcategory>
+                element: <Allcategory></Allcategory>,
+                loader: ({ params }) => fetch(`http://localhost:5000/category/${params.id}`)
             }
         ]
+    },
+    {
+        path: '/deshboard',
+        element: <Deshboard></Deshboard>
     }
+
 ])
 export default router;
