@@ -6,6 +6,7 @@ import Allcategory from "../../Pages/Home/Category/CategoryData/AllCategory/Allc
 import Home from "../../Pages/Home/Home";
 import Login from "../../Pages/Login/Login";
 import SignUp from "../../Pages/SignUp/SignUp";
+import PrivateRoute from "../PrivateRoute/PrivateRoute";
 
 const router = createBrowserRouter([
     {
@@ -38,7 +39,7 @@ const router = createBrowserRouter([
     },
     {
         path: '/deshboard',
-        element: <Deshboard></Deshboard>
+        element: <PrivateRoute><Deshboard></Deshboard></PrivateRoute>
     }
 
 ])
