@@ -1,13 +1,14 @@
 import { GoogleAuthProvider } from 'firebase/auth';
 import React, { useContext, useState } from 'react';
 import toast from 'react-hot-toast';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthProvider/AuthProvider';
 
 const SignUp = () => {
     const { createSignIn, googleSignIn, updateUser } = useContext(AuthContext);
     const [signupError, setSignupError] = useState();
     const provider = new GoogleAuthProvider()
+    const navigate = useNavigate()
 
     const handleSignUp = event => {
         event.preventDefault()
@@ -26,9 +27,10 @@ const SignUp = () => {
                 const userInfo = {
                     displayName: name
                 }
-                console.log(userInfo)
                 updateUser(userInfo)
-                    .then(() => { })
+                    .then(() => {
+                        saveUser(name, email)
+                    })
                     .catch(error => console.error(error))
 
 
@@ -36,6 +38,24 @@ const SignUp = () => {
             .catch(error => {
                 console.error(error.message)
                 setSignupError(error.message)
+            })
+    }
+
+    const saveUser = (name, email) => {
+        const user = { name, email };
+        console.log(user)
+        fetch('http://localhost:5000/users', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(user)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                navigate('/')
+                toast.success('users saved')
             })
     }
 

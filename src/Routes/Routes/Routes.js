@@ -1,4 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
+import DeshboardLayOut from "../../LayOut/DeshboardLayOut/DeshboardLayOut";
+import MyOrders from "../../LayOut/DeshboardLayOut/MyOrders/MyOrders";
 import Main from "../../LayOut/Main/Main";
 import Blog from "../../Pages/Blog/Blog";
 import Deshboard from "../../Pages/Deshboard/Deshboard";
@@ -39,7 +41,13 @@ const router = createBrowserRouter([
     },
     {
         path: '/deshboard',
-        element: <PrivateRoute><Deshboard></Deshboard></PrivateRoute>
+        element: <PrivateRoute><DeshboardLayOut></DeshboardLayOut></PrivateRoute>,
+        children: [
+            {
+                path: '/deshboard',
+                element: <MyOrders></MyOrders>
+            }
+        ]
     }
 
 ])

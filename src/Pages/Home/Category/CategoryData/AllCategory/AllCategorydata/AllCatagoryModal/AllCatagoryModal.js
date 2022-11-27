@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import toast from 'react-hot-toast';
 import { AuthContext } from '../../../../../../../context/AuthProvider/AuthProvider';
 
 const AllCatagoryModal = ({ laptop, setLaptop }) => {
@@ -27,8 +28,25 @@ const AllCatagoryModal = ({ laptop, setLaptop }) => {
         }
         console.log(booking)
 
+        fetch('http://localhost:5000/bookings', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(booking)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                if (data.acknowledged) {
+                    setLaptop(null)
+                    toast.success('Your Booking confirm')
+                }
+                // else {
+                //     toast.error(data.message)
+                // }
 
-        setLaptop(null)
+            })
 
     }
 
@@ -38,7 +56,7 @@ const AllCatagoryModal = ({ laptop, setLaptop }) => {
             <div className="modal">
                 <form onSubmit={handlesubmit} className="modal-box relative">
                     <label htmlFor="bookingmodal" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
-                    {user ?
+                    {user?.uid ?
                         <>
                             <h3 className="text-lg font-bold text-center">{title}</h3>
                             <input type="text" placeholder='price' value={`Price : ${resalePrice}`} className="input input-bordered w-full my-2 " name='price' readOnly />
