@@ -59,7 +59,7 @@ const AllCatagoryModal = ({ laptop, setLaptop }) => {
                     {user?.uid ?
                         <>
                             <h3 className="text-lg font-bold text-center">{title}</h3>
-                            <input type="text" placeholder='price' value={`Price : ${resalePrice}`} className="input input-bordered w-full my-2 " name='price' readOnly />
+                            <input type="number" placeholder='price' value={`Price : ${resalePrice}`} className="input input-bordered w-full my-2 " name='price' readOnly />
                             <input type="date" className="input input-bordered w-full my-2 " name='date' required />
                             <input type="email" value={user?.email} className="input input-bordered w-full my-2 " name='email' readOnly />
                             <input type="text" value={user?.displayName} className="input input-bordered w-full my-2 " name='userName' required readOnly />
