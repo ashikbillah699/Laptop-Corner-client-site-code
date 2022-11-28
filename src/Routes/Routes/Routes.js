@@ -1,13 +1,15 @@
 import { createBrowserRouter } from "react-router-dom";
+import AddProduct from "../../LayOut/DeshboardLayOut/AddProduct/AddProduct";
+import AllUsers from "../../LayOut/DeshboardLayOut/AllUsers/AllUsers";
 import DeshboardLayOut from "../../LayOut/DeshboardLayOut/DeshboardLayOut";
 import MyOrders from "../../LayOut/DeshboardLayOut/MyOrders/MyOrders";
 import Main from "../../LayOut/Main/Main";
 import Blog from "../../Pages/Blog/Blog";
-import Deshboard from "../../Pages/Deshboard/Deshboard";
 import Allcategory from "../../Pages/Home/Category/CategoryData/AllCategory/Allcategory";
 import Home from "../../Pages/Home/Home";
 import Login from "../../Pages/Login/Login";
 import SignUp from "../../Pages/SignUp/SignUp";
+import AdminRoute from "../AdminRoute/AdminRoute";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 
 const router = createBrowserRouter([
@@ -46,6 +48,14 @@ const router = createBrowserRouter([
             {
                 path: '/deshboard',
                 element: <MyOrders></MyOrders>
+            },
+            {
+                path: '/deshboard/allusers',
+                element: <AdminRoute><AllUsers></AllUsers></AdminRoute>
+            },
+            {
+                path: '/deshboard/addproduct',
+                element: <AddProduct></AddProduct>
             }
         ]
     }

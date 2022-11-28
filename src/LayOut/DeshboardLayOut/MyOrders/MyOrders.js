@@ -46,7 +46,7 @@ const MyOrders = () => {
                                 <td>{booking.date}</td>
                                 <td>{booking.address}</td>
                                 <td>{booking.location}</td>
-                                <td>{booking.Phone}</td>
+                                <td>{booking.phone}</td>
                             </tr>
                             )
                         }
