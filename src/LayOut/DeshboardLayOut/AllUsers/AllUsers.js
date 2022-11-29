@@ -1,8 +1,16 @@
 import { useQuery } from '@tanstack/react-query';
-import React from 'react';
+import React, { useState } from 'react';
 import toast from 'react-hot-toast';
+import ConfrimationModal from '../../../Pages/Share/ConfrimationModal/ConfrimationModal';
 
 const AllUsers = () => {
+    const [deletingUser, setDeletionUser] = useState(null)
+
+    const closeModle = () => {
+        setDeletionUser(null);
+    }
+
+
     const { data: users = [], refetch } = useQuery({
         queryKey: ['users'],
         queryFn: async () => {
@@ -30,6 +38,22 @@ const AllUsers = () => {
             })
     }
 
+    const handleDeleteUser = (user) => {
+        fetch(`http://localhost:5000/users/${user._id}`, {
+            method: 'DELETE',
+            headers: {
+                authorization: `bearer ${localStorage.getItem('accessToken')}`
+            }
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.deletedCount > 0) {
+                    toast.success(`${user.name} deleted successfully`)
+                    refetch()
+                }
+            })
+    }
+
     return (
         <div className="overflow-x-auto">
             <h1 className='uppercase text-center font-bold text-3xl my-3'>All User</h1>
@@ -50,12 +74,25 @@ const AllUsers = () => {
                             <td>{user.name}</td>
                             <td>{user.email}</td>
                             <td>{user?.role !== 'admin' && <button onClick={() => haldlemakeAdmin(user._id)} className='btn btn-xs bg-info border-none'>Make Admin</button>}</td>
-                            <td><button className='btn btn-xs bg-red-500 border-none'>Delete</button></td>
+                            <td>
+                                <label onClick={() => setDeletionUser(user)} className='btn btn-xs bg-red-500 border-none' htmlFor="confirmationModal" >Delete</label>
+                            </td>
                         </tr>)
                     }
 
                 </tbody>
             </table>
+            {
+                deletingUser && <ConfrimationModal
+                    title={'Are you sure you want to delete?'}
+                    message={`If you delete ${deletingUser.name}. It cannot be undone.`}
+                    successAction={handleDeleteUser}
+                    modleData={deletingUser}
+                    successName={'Delete'}
+                    closeModle={closeModle}
+                >
+                </ConfrimationModal>
+            }
         </div>
     );
 };

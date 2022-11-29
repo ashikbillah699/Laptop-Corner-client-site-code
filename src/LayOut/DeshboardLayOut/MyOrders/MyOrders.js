@@ -1,5 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 import React, { useContext } from 'react';
+import toast from 'react-hot-toast';
 import { AuthContext } from '../../../context/AuthProvider/AuthProvider';
 
 const MyOrders = () => {
@@ -20,6 +21,23 @@ const MyOrders = () => {
         }
 
     })
+
+    const handleDeleteBooking = _id => {
+        const agree = window.confirm(`are you sure you want to delete?${_id}`);
+        if (agree) {
+            fetch(`http://localhost:5000/bookings/${_id}`, {
+                method: 'DELETE'
+            })
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data)
+                    if (data.deletedCount > 0) {
+                        toast.success('your order deleted successfully')
+                    }
+                })
+        }
+    }
+
     return (
         <div className='container mx-auto'>
             <h1 className='uppercase text-center font-bold text-3xl my-3'>My Orders</h1>
@@ -34,6 +52,7 @@ const MyOrders = () => {
                             <th>Address</th>
                             <th>Location</th>
                             <th>Phone</th>
+                            <th>Delet</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -46,6 +65,7 @@ const MyOrders = () => {
                                 <td>{booking.address}</td>
                                 <td>{booking.location}</td>
                                 <td>{booking.phone}</td>
+                                <td><button onClick={() => handleDeleteBooking(booking._id)} className='btn btn-xs border-0 bg-red-500'>Delete</button></td>
                             </tr>
                             )
                         }
