@@ -15,7 +15,7 @@ const AddProduct = () => {
         const usetime = form.usetime.value;
         const date = form.date.value;
         const mprice = form.mprice.value;
-        const rprice = form.rprice.value;
+        const resalePrice = form.rprice.value;
         const img = form.img.value;
         const ditails = form.ditails.value;
         const name = form.name.value;
@@ -24,14 +24,14 @@ const AddProduct = () => {
         const address = form.address.value;
         const phone = form.phone.value;
         const performance = form.performance.value;
-        const option = form.option.value
+        const service_id = form.service_id.value
 
         const product = {
             productname,
             usetime,
             date,
             mprice,
-            rprice,
+            resalePrice,
             img,
             ditails,
             name,
@@ -40,7 +40,7 @@ const AddProduct = () => {
             address,
             phone,
             performance,
-            option
+            service_id
         }
         console.log(product)
 
@@ -82,15 +82,15 @@ const AddProduct = () => {
                 <form onSubmit={handleAddProduct} className="card flex-shrink-0 w-full">
                     <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4">
                         <div className="form-control">
-                            <input name='productname' type="text" placeholder="Laptop v name" className="input input-bordered" required />
+                            <input name='productname' type="text" placeholder="CORE i & Gen" className="input input-bordered" required />
                         </div>
                         <div className="form-control">
-                            <select name='option' className="select select-bordered w-full">
+                            <select name='service_id' className="select select-bordered w-full">
                                 {
                                     categoryNames.map(name => <option
                                         key={name?._id}
-                                        value={name.title}
-                                    >{name.service_id} : {name.title}</option>)
+                                        value={name.service_id}
+                                    > {name.title}</option>)
                                 }
                             </select>
                         </div>

@@ -42,9 +42,6 @@ const AllCatagoryModal = ({ laptop, setLaptop }) => {
                     setLaptop(null)
                     toast.success('Your Booking confirm')
                 }
-                // else {
-                //     toast.error(data.message)
-                // }
 
             })
 
