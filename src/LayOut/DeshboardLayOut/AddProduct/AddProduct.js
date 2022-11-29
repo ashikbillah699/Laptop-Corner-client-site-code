@@ -11,7 +11,7 @@ const AddProduct = () => {
     const handleAddProduct = event => {
         event.preventDefault()
         const form = event.target;
-        const productname = form.productname.value;
+        const title = form.productname.value;
         const usetime = form.usetime.value;
         const date = form.date.value;
         const mprice = form.mprice.value;
@@ -27,7 +27,7 @@ const AddProduct = () => {
         const service_id = form.service_id.value
 
         const product = {
-            productname,
+            title,
             usetime,
             date,
             mprice,
@@ -57,7 +57,7 @@ const AddProduct = () => {
                 console.log(data);
                 if (data.acknowledged) {
                     toast.success('your product is posted')
-                    navigate('/categoy/:id')
+                    navigate(`/categoy/${service_id}`)
                 }
             })
 

@@ -15,7 +15,9 @@ const AllCatagoryModal = ({ laptop, setLaptop }) => {
         const date = form.date.value;
         const phone = form.phone.value
         const address = form.address.value;
-        const location = form.location.value
+        const location = form.location.value;
+        const resalePrice = form.resalePrice.value;
+        const title = form.title.value;
         const booking = {
             title,
             resalePrice,
