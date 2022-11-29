@@ -3,7 +3,7 @@ import React from 'react';
 const OurPolicy = () => {
     return (
         <div className="hero  my-20">
-            <div className="hero-content flex-col lg:flex-row">
+            <div className="hero-content flex-col lg:flex-row-reverse">
                 <img alt='' src='https://s.yimg.com/uu/api/res/1.2/HIzpqfITrRI8jM6YiFUWFA--~B/aD02MDE7dz02MDA7YXBwaWQ9eXRhY2h5b24-/https://www.blogcdn.com/www.engadget.com/media/2008/12/xps13_main.jpg' />
                 <div>
                     <h1 className="text-5xl font-bold">OUR POLICY</h1>

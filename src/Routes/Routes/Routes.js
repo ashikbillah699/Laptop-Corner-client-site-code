@@ -58,6 +58,10 @@ const router = createBrowserRouter([
                 element: <AddProduct></AddProduct>
             }
         ]
+    },
+    {
+        path: '*',
+        element: <div className="mx-auto"><img src='https://cdn.ttgtmedia.com/rms/onlineimages/404_error-h_half_column_mobile.png' alt="" /></div>
     }
 
 ])

@@ -18,12 +18,12 @@ const Header = () => {
 
     const mennuItem = <React.Fragment>
         <li><Link to='/'>Home</Link></li>
-        <li><Link to='/'>Category</Link></li>
+        <li><Link to=''>Category</Link></li>
         <li><Link to='/Blog'>Blog</Link></li>
         {user?.uid &&
             <li><Link to='/deshboard'>Deshboard</Link></li>
         }
-
+        <li><Link to='/review'>Review</Link></li>
     </React.Fragment>
     return (
         <div className="navbar bg-base-100 py-5 container mx-auto">

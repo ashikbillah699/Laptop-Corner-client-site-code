@@ -90,7 +90,7 @@ const AddProduct = () => {
                                     categoryNames.map(name => <option
                                         key={name?._id}
                                         value={name.title}
-                                    >{name.title}</option>)
+                                    >{name.service_id} : {name.title}</option>)
                                 }
                             </select>
                         </div>
