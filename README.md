@@ -1,3 +1,23 @@
+# Laptop Corner
+Link:
+
+## Feture
+
+# install react router.
+# tooltip.
+# used tailwind and daisyUi .
+# used many component.
+# ueed favicon.
+# ueed title.
+# used dynamic-API.
+# react fontawsome Icon.
+# used node server
+# Mongodb used
+# userd firebase
+# React Query
+
+## website policy:
+Laptop shall be the property of the Company at all times and the employee will not have any right or interest in the said asset except using such asset during the employment or for such duration as may be decided by the Company. Employee must ensure that the laptop is being used only for official purposes and in the course of the rightful discharge of their duties and not for generating, transmitting, corresponding any content that is contrary to Company policies. This may lead to the employee being subject to disciplinary or any other appropriate action as per Company policies. B. Laptop Security Controls ,All laptops acquired for employees on behalf of the Company shall be deemed to be Company property. Each employee issued with a laptop shall be responsible for the security of that laptop, regardless of whether the laptop is used in the office, at the employee’s place of residence, or in any other location such as a hotel, conference room, car or airport. Employee shall ensure security of the laptop in each of the following domains as per the stated guidelines. Laptops must compulsorily be protected by a username and password.
 
 
 # Getting Started with Create React App
