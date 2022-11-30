@@ -1,10 +1,12 @@
 import { useQuery } from '@tanstack/react-query';
 import React, { useState } from 'react';
 import toast from 'react-hot-toast';
+import useTitle from '../../../hookes/useTitle';
 import ConfrimationModal from '../../../Pages/Share/ConfrimationModal/ConfrimationModal';
 
 const AllUsers = () => {
     const [deletingUser, setDeletionUser] = useState(null)
+    useTitle('All User')
 
     const closeModle = () => {
         setDeletionUser(null);

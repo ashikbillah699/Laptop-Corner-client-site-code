@@ -1,6 +1,8 @@
 import React from 'react';
+import useTitle from '../../hookes/useTitle';
 
 const Blog = () => {
+    useTitle('Blog')
     return (
         <div>
             <div className='container m-auto'>

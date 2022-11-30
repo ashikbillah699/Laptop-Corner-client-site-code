@@ -10,12 +10,12 @@ const AllCategoryData = ({ product, setLaptop }) => {
                 </div>
                 <div className=''>
                     <div className='p-6 my-5 pt-2 rounded-lg border border-slate-400'>
-                        <h1 className="text-2xl text-center font-bold">{title}</h1>
+                        <h1 className="text-2xl text-center font-bold pb-4">{title}</h1>
                         <p className=""> <strong>Ditails :</strong> {ditails}</p>
                     </div>
                     <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 p-6 my-5 rounded-lg border border-slate-400'>
                         <p className="font-bold w-1/2 mx-auto">Years of Use : {usetime}</p>
-                        <p className="font-bold w-1/2 mx-auto">Years of Use : {date}</p>
+                        <p className="font-bold w-1/2 mx-auto">Post date : {date}</p>
                     </div>
                     <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 p-6 my-5 rounded-lg border border-slate-400'>
                         <p className="font-bold w-1/2 mx-auto ">Owner Name : {name}</p>

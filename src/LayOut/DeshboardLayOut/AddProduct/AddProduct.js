@@ -3,10 +3,12 @@ import React, { useContext } from 'react';
 import toast from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../context/AuthProvider/AuthProvider';
+import useTitle from '../../../hookes/useTitle';
 
 
 const AddProduct = () => {
     const { user } = useContext(AuthContext)
+    useTitle('Add Product')
     const navigate = useNavigate()
     const handleAddProduct = event => {
         event.preventDefault()
@@ -82,7 +84,7 @@ const AddProduct = () => {
                 <form onSubmit={handleAddProduct} className="card flex-shrink-0 w-full">
                     <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4">
                         <div className="form-control">
-                            <input name='productname' type="text" placeholder="CORE i & Gen" className="input input-bordered" required />
+                            <input name='productname' type="text" placeholder="Laptop Name & CORE i Gen" className="input input-bordered" required />
                         </div>
                         <div className="form-control">
                             <select name='service_id' className="select select-bordered w-full">

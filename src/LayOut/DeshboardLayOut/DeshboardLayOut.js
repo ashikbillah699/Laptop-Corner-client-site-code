@@ -2,11 +2,13 @@ import React, { useContext } from 'react';
 import { Link, Outlet } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthProvider/AuthProvider';
 import useAdmin from '../../hookes/useAdmin';
+import useTitle from '../../hookes/useTitle';
 import Header from '../../Pages/Share/Header/Header';
 
 const DeshboardLayOut = () => {
     const { user } = useContext(AuthContext)
     const [isAdmin] = useAdmin(user?.email)
+    useTitle('Deshboard')
     return (
         <div>
             <Header></Header>

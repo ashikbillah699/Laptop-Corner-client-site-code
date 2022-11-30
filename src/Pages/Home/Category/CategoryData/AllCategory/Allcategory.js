@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
+import useTitle from '../../../../../hookes/useTitle';
 import AllCatagoryModal from './AllCategorydata/AllCatagoryModal/AllCatagoryModal';
 import AllCategoryData from './AllCategorydata/AllCategoryData';
 
 const Allcategory = () => {
     const products = useLoaderData()
     const [laptop, setLaptop] = useState(null)
+    useTitle('All Category')
 
     return (
         <div>

@@ -3,6 +3,7 @@ import React, { useContext, useState } from 'react';
 import toast from 'react-hot-toast';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthProvider/AuthProvider';
+import useTitle from '../../hookes/useTitle';
 import useToken from '../../hookes/useToken';
 
 const SignUp = () => {
@@ -12,6 +13,7 @@ const SignUp = () => {
     const [createUserdEmail, setCreateUserdEmail] = useState('')
     const [token] = useToken(createUserdEmail)
     const navigate = useNavigate()
+    useTitle('SignUp')
 
     if (token) {
         navigate('/')

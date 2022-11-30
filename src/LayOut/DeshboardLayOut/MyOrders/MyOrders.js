@@ -2,9 +2,11 @@ import { useQuery } from '@tanstack/react-query';
 import React, { useContext } from 'react';
 import toast from 'react-hot-toast';
 import { AuthContext } from '../../../context/AuthProvider/AuthProvider';
+import useTitle from '../../../hookes/useTitle';
 
 const MyOrders = () => {
     const { user } = useContext(AuthContext);
+    useTitle('My Order')
 
     const url = `http://localhost:5000/bookings?email=${user?.email}`
 
@@ -23,7 +25,7 @@ const MyOrders = () => {
     })
 
     const handleDeleteBooking = _id => {
-        const agree = window.confirm(`are you sure you want to delete?${_id}`);
+        const agree = window.confirm(`are you sure you want to delete?}`);
         if (agree) {
             fetch(`http://localhost:5000/bookings/${_id}`, {
                 method: 'DELETE'
@@ -39,10 +41,10 @@ const MyOrders = () => {
     }
 
     return (
-        <div className='container mx-auto'>
+        <div className=''>
             <h1 className='uppercase text-center font-bold text-3xl my-3'>My Orders</h1>
             <div className="overflow-x-auto">
-                <table className="table w-full">
+                <table className="table w-full ">
                     <thead>
                         <tr>
                             <th>Order No</th>

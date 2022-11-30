@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthProvider/AuthProvider';
+import useTitle from '../../hookes/useTitle';
 import useToken from '../../hookes/useToken';
 
 const Login = () => {
@@ -10,6 +11,7 @@ const Login = () => {
     const [token] = useToken(loginUserEmail)
     const location = useLocation();
     const navigate = useNavigate();
+    useTitle('Login')
 
     const from = location.state?.from?.pathname || "/";
 

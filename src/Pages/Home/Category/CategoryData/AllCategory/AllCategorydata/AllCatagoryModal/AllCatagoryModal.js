@@ -1,9 +1,11 @@
 import React, { useContext } from 'react';
 import toast from 'react-hot-toast';
 import { AuthContext } from '../../../../../../../context/AuthProvider/AuthProvider';
+import useTitle from '../../../../../../../hookes/useTitle';
 
 const AllCatagoryModal = ({ laptop, setLaptop }) => {
     const { user } = useContext(AuthContext)
+    useTitle('Booking')
     console.log(user)
     const { title, resalePrice } = laptop;
 
