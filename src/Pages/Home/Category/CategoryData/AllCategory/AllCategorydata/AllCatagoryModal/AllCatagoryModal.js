@@ -32,7 +32,7 @@ const AllCatagoryModal = ({ laptop, setLaptop }) => {
         }
         console.log(booking)
 
-        fetch('http://localhost:5000/bookings', {
+        fetch('https://laptop-corner-server.vercel.app/bookings', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

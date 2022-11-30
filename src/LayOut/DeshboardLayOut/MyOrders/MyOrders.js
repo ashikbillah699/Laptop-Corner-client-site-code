@@ -8,7 +8,7 @@ const MyOrders = () => {
     const { user } = useContext(AuthContext);
     useTitle('My Order')
 
-    const url = `http://localhost:5000/bookings?email=${user?.email}`
+    const url = `https://laptop-corner-server.vercel.app/bookings?email=${user?.email}`
 
     const { data: bookings = [] } = useQuery({
         queryKey: ['bookings', user?.email],
@@ -27,7 +27,7 @@ const MyOrders = () => {
     const handleDeleteBooking = _id => {
         const agree = window.confirm(`are you sure you want to delete?}`);
         if (agree) {
-            fetch(`http://localhost:5000/bookings/${_id}`, {
+            fetch(`https://laptop-corner-server.vercel.app/bookings/${_id}`, {
                 method: 'DELETE'
             })
                 .then(res => res.json())

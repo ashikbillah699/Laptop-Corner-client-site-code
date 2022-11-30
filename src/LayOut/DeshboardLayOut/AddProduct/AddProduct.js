@@ -46,7 +46,7 @@ const AddProduct = () => {
         }
         console.log(product)
 
-        fetch('http://localhost:5000/product', {
+        fetch('https://laptop-corner-server.vercel.app/product', {
             method: 'POST',
             headers: {
                 "content-type": 'application/json',
@@ -68,7 +68,7 @@ const AddProduct = () => {
     const { data: categoryNames = [] } = useQuery({
         queryKey: ['categoryName'],
         queryFn: async () => {
-            const res = await fetch('http://localhost:5000/categoryName')
+            const res = await fetch('https://laptop-corner-server.vercel.app/categoryName')
             const data = await res.json();
             return data
         }
