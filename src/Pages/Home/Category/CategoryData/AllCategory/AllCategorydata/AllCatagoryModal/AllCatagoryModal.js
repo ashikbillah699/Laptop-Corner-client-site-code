@@ -57,8 +57,10 @@ const AllCatagoryModal = ({ laptop, setLaptop }) => {
                     <label htmlFor="bookingmodal" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
                     {user?.uid ?
                         <>
-                            <h3 className="text-lg font-bold text-center">{title}</h3>
-                            <input type="number" placeholder='price' value={`Price : ${resalePrice}`} className="input input-bordered w-full my-2 " name='price' readOnly />
+                            {/* <h3 className="text-lg font-bold text-center display-none" name="title">{title}</h3> */}
+                            <input type="text" placeholder='title' value={title} className=" input input-bordered w-full my-2  text-lg font-bold" name='title' readOnly />
+
+                            <input type="number" placeholder='price' value={resalePrice} className="input input-bordered w-full my-2 " name='resalePrice' readOnly />
                             <input type="date" className="input input-bordered w-full my-2 " name='date' required />
                             <input type="email" value={user?.email} className="input input-bordered w-full my-2 " name='email' readOnly />
                             <input type="text" value={user?.displayName} className="input input-bordered w-full my-2 " name='userName' required readOnly />
